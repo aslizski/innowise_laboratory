@@ -1,0 +1,9 @@
+[project]
+name = "lecture_1"
+version = "0.1"
+description = "Configured Python project, ready for development and collaboration"
+requires-python = ">=3.12"
+
+dependencies = [
+    "colorama >=0.4.6",
+]
