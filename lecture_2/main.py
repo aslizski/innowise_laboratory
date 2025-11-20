@@ -1,4 +1,5 @@
-from user_profile import generate_profile, user_age, profile_summary
+from user_profile import generate_profile, profile_summary
+import datetime
 
 # Ask for user's name
 user_name = input("Hello! Please, provide us your full name: ")
@@ -7,8 +8,9 @@ birth_year_str = input("Enter your birth date: ")
 # convert birth year to int
 birth_year = int(birth_year_str)
 
-# Calculate age using function from the module
-current_age = user_age(birth_year)
+# Calculate age using datetime.year
+current_date = datetime.datetime.now().year
+current_age = current_date - birth_year
 
 # Collect hobbies from the user until they type 'stop'
 hobbies = []

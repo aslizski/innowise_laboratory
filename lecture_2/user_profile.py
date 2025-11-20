@@ -1,15 +1,8 @@
 """
 Module user_profile have useful func:
     generate_profile() -generation of users life-stage
-    user_age() - returns user age
+    profile_summary() - returns user formatted summary
 """
-
-
-def user_age(birth_year):
-    """
-       Returns age based on birth year.
-    """
-    return 2025 - birth_year
 
 
 def generate_profile(age):
@@ -22,13 +15,12 @@ def generate_profile(age):
     returns:
     str - category of user
     """
-    if age < 0:
-        return "Wrong number"
-    elif age <= 12:
+
+    if 0 <= age <= 12:
         return "Child"
-    elif age <= 19:
+    elif 13 <= age <= 19:
         return "Teenager"
-    else:
+    elif age >= 20:
         return "Adult"
 
 
