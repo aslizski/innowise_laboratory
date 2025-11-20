@@ -4,7 +4,6 @@ from user_profile import generate_profile, user_age, profile_summary
 user_name = input("Hello! Please, provide us your full name: ")
 birth_year_str = input("Enter your birth date: ")
 
-
 # convert birth year to int
 birth_year = int(birth_year_str)
 
@@ -19,7 +18,6 @@ while True:
         break
     hobbies.append(hobby)
 
-
 # user life stage
 life_stage = generate_profile(current_age)
 
@@ -27,7 +25,7 @@ life_stage = generate_profile(current_age)
 user_profile = {
     "Name": user_name.title(),
     "Age": current_age,
-    "Stage": life_stage,
+    "Life Stage": life_stage,
     "Hobbies": hobbies
 }
 
