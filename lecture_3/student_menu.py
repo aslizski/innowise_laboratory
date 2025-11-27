@@ -1,5 +1,4 @@
 def new_student(students):
-
     """
     Adds a new student to the list if the name does not already exist.
 
