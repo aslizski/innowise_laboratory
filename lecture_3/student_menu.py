@@ -6,7 +6,11 @@ def new_student(students):
         students (list): List of student dictionaries.
     """
     while True:
+
         name = input("Enter student name: ").strip().lower().title()
+        if not name:
+            print("Name cannot be empty.")
+            continue
         if any(student["name"] == name for student in students):
             print("This name is already exist")
             continue
