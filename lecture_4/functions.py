@@ -1,28 +1,27 @@
 import sqlite3
 
-def run_query(cursor, query, params=()):
+def run_query(db_path, query):
     """
-    Execute a single SQL query.
+    Runs a SQL query and returns all fetched results.
     """
-    cursor.execute(query, params)
+    conn = sqlite3.connect(db_path)
+    cursor = conn.cursor()
+    cursor.execute(query)
+    results = cursor.fetchall()
+    conn.commit()
+    conn.close()
+    return results
 
-def run_many(cursor, query, data):
+def execute_script(db_path, script_path):
     """
-    Execute a query multiple times with a list of data.
+    Executes all SQL commands from a .sql file.
     """
-    cursor.executemany(query, data)
+    conn = sqlite3.connect(db_path)
+    cursor = conn.cursor()
 
-def table_empty(cursor, count_query):
-    """
-    Check if a table is empty.
-    Returns True if the table has no rows.
-    """
-    cursor.execute(count_query)
-    return cursor.fetchone()[0] == 0
+    with open(script_path, "r", encoding="utf-8") as f:
+        sql_script = f.read()
 
-def fetch_all(cursor, select_query, params=()):
-    """
-    Execute a SELECT query and return all results as a list of tuples.
-    """
-    cursor.execute(select_query, params)
-    return cursor.fetchall()
+    cursor.executescript(sql_script)
+    conn.commit()
+    conn.close()
