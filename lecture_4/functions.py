@@ -1,5 +1,6 @@
 import sqlite3
 
+
 def run_query(db_path, query):
     """
     Runs a SQL query and returns all fetched results.
@@ -11,6 +12,7 @@ def run_query(db_path, query):
     conn.commit()
     conn.close()
     return results
+
 
 def execute_script(db_path, script_path):
     """

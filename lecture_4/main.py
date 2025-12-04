@@ -1,7 +1,7 @@
 from functions import execute_script, run_query
 
 """
-Main script that creates the database using queries.sql
+Main script that creates the database using school.sql
 and then demonstrates running example SELECT queries.
 """
 
